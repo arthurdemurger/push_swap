@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 18:28:57 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/17 14:48:46 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/17 13:59:55 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/17 14:00:26 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_atoi(const char *str, t_stack *stacks)
+int	ft_lstsize(t_list *lst)
 {
-	long long	sum;
-	int			sign;
-	int			i;
-	int			size;
+	int	i;
 
-	size = 0;
-	sum = 0;
-	sign = 1;
+	if (!lst)
+		return (0);
 	i = 0;
-	if (str[i] == '+' || str[i] == '-')
+	while (lst->next)
 	{
-		if (str[i] == '-')
-			sign *= -1;
 		i++;
+		lst = lst->next;
 	}
-	while (str[i] >= '0' && str[i] <= '9' && ++size)
-		sum = sum * 10 + str[i++] - 48;
-	sum *= sign;
-	if ((str[i] != '\0' && !ft_isdigit(str[i])))
-		ft_error(stacks);
-	if (size > 10 || sum > 2147483647 || sum < -2147483648)
-		ft_error(stacks);
-	return (sum);
+	return (++i);
 }

@@ -6,32 +6,41 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/13 19:25:02 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/17 20:46:23 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-
-
-void	ft_init(t_stack *stacks, int ac, char **av)
+void	ft_init(t_stack *stacks, char **av)
 {
-	/* WORK IN PROGRESS
-	int	tmp[ac -1];
-	int	i;
-	int	j;
+	int		i;
+	t_list	*tmp;
+	t_list	*lst;
 
-	stacks->a = tmp;
-	stacks->b = tmp;
-	stacks->len = ac - 1;
 	i = 0;
+	stacks->b = NULL;
+	stacks->name_a = 'a';
+	stacks->name_b = 'b';
 	while (av[++i])
-		stacks->a[i - 1] = ft_atoi(av[i]);
-	i = -1;
-	while (i < stacks->len - 1)
+		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
+	lst = stacks->a;
+	while (lst)
 	{
-		j = i + 1;
-		while (stacks->a[j])
+		tmp = lst->next;
+		while (tmp)
+		{
+			if (lst->data == tmp->data)
+				ft_error(stacks);
+			tmp = tmp->next;
+		}
+		lst = lst->next;
+	}
+}
+
+/*while (stacks->a)
+	{
+		printf("%d\n", stacks->a->data);
+		stacks->a = stacks->a->next;
 	}
 	*/
-}

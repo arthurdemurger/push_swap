@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lst_prelast.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 00:52:36 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/17 13:57:27 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/18 00:36:54 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lst_prelast(t_list *lst)
 {
-	t_stack	stacks;
-
-	if (argc > 1)
-	{
-		ft_init(&stacks, argv);
-	}
-	else
-		exit(1);
-	return (0);
+	while (lst && lst->next && lst->next->next)
+		lst = lst->next;
+	return (lst);
 }

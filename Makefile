@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/05/17 17:38:26 by ademurge         ###   ########.fr        #
+#    Updated: 2022/05/18 00:44:34 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS			= 	srcs/error.c \
 					srcs/push_swap.c
 
 LIBFT			=	libft/ft_atoi.c \
+					libft/ft_lst_prelast.c \
 					libft/ft_isdigit.c \
 					libft/ft_lstadd_back.c \
 					libft/ft_lstadd_front.c \

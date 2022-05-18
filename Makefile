@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/05/18 00:44:34 by ademurge         ###   ########.fr        #
+#    Updated: 2022/05/18 16:47:10 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,11 @@ LIBFT			=	libft/ft_atoi.c \
 					libft/ft_lstlast.c \
 					libft/ft_lstnew.c \
 					libft/ft_lstsize.c \
-					libft/ft_strlen.c
+					libft/ft_split.c \
+					libft/ft_strdup.c \
+					libft/ft_strlcpy.c \
+					libft/ft_strlen.c \
+					libft/ft_substr.c
 
 NAME			= push_swap
 

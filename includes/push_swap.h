@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 00:54:00 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 16:45:56 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,10 @@ void	ft_lstdelone(t_list *lst);
 t_list	*ft_lst_prelast(t_list *lst);
 t_list	*ft_lstnew(int content, t_stack *stacks);
 int		ft_lstsize(t_list *lst);
+char	**ft_split(char const *s, char c);
+char	*ft_strdup(char *src);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 int		ft_strlen(char *s);
+char	*ft_substr(char const *s, int start, int len);
 
 #endif

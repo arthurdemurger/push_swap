@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 16:49:35 by ademurge         ###   ########.fr       */
+/*   Created: 2022/03/03 18:10:09 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/18 16:46:09 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	t_stack	stacks;
+	size_t	i;
+	size_t	c;
 
-	if (argc > 1)
+	i = -1;
+	c = 0;
+	while (src[c])
+		c++;
+	if (size)
 	{
-		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
-		else
-			ft_init(&stacks, argv);
-		print_stacks(&stacks);
+		while (src[++i] && i < (size - 1))
+			dest[i] = src[i];
+		dest[i] = 0;
 	}
-	else
-		exit(1);
-	return (0);
+	return (c);
 }

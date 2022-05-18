@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 16:49:35 by ademurge         ###   ########.fr       */
+/*   Created: 2022/03/03 18:10:04 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/18 16:46:14 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(char *src)
 {
-	t_stack	stacks;
+	char	*str;
 
-	if (argc > 1)
-	{
-		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
-		else
-			ft_init(&stacks, argv);
-		print_stacks(&stacks);
-	}
-	else
-		exit(1);
-	return (0);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, src, ft_strlen(src) + 1);
+	return (str);
 }

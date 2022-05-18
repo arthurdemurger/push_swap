@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 18:36:20 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:48:35 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ int	main(int argc, char **argv)
 		sort(&stacks);
 		print_stacks(&stacks);
 	}
-	else
-		exit(1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 18:35:21 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:48:32 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,15 @@ static void	sort_5(t_stack *stacks)
 				ft_reverse_rot(&stacks->a, A, SIMPLE);
 		ft_push(&stacks->b, &stacks->a, B);
 	}
-	sort_3(stacks);
+	if (!is_sorted(stacks->a))
+		sort_3(stacks);
 	ft_push(&stacks->a, &stacks->b, A);
 	ft_push(&stacks->a, &stacks->b, A);
+}
+
+void	sort_large_nb(t_stack *stacks)
+{
+
 }
 
 void	sort(t_stack *stacks)
@@ -99,6 +105,6 @@ void	sort(t_stack *stacks)
 		sort_4(stacks);
 	else if (stacks->size == 5)
 		sort_5(stacks);
-	//else
-		//code
+	else
+		sort_large_nb(stacks);
 }

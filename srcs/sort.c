@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 18:06:26 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:35:21 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,20 @@ static void	sort_5(t_stack *stacks)
 	int	index;
 	int	min;
 
-	min = ft_findmin(stacks->a);
-	index = ft_findindex(stacks->a, min);
-	if (index <= 1)
-		while (stacks->a->data != min)
-			ft_rotate(&stacks->a, A, SIMPLE);
-	else if (index <= 3)
-		while (stacks->a->data != min)
-			ft_reverse_rot(&stacks->a, A, SIMPLE);
-	ft_push(&stacks->b, &stacks->a, B);
-	sort_4(stacks);
+	while (ft_lstsize(stacks->b) != 2)
+	{
+		min = ft_findmin(stacks->a);
+		index = ft_findindex(stacks->a, min);
+		if (index <= 2)
+			while (stacks->a->data != min)
+				ft_rotate(&stacks->a, A, SIMPLE);
+		else if (index <= 4)
+			while (stacks->a->data != min)
+				ft_reverse_rot(&stacks->a, A, SIMPLE);
+		ft_push(&stacks->b, &stacks->a, B);
+	}
+	sort_3(stacks);
+	ft_push(&stacks->a, &stacks->b, A);
 	ft_push(&stacks->a, &stacks->b, A);
 }
 

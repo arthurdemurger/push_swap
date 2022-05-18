@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_findorder.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 22:44:11 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/18 22:09:42 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/18 22:24:07 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_findorder(t_list *lst, int nb)
 {
-	t_stack	stacks;
+	int	ord;
 
-	if (argc > 1)
+	ord = 1;
+	while (lst)
 	{
-		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
-		else
-			ft_init(&stacks, argv);
-		sort(&stacks);
-		print_stacks(&stacks);
+		if (nb > lst->data)
+			ord++;
+		lst = lst->next;
 	}
-	return (0);
+	return (ord);
 }

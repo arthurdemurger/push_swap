@@ -6,22 +6,11 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 19:48:32 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/19 00:03:34 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static int	is_sorted(t_list *lst)
-{
-	while (lst && lst->next)
-	{
-		if (lst->data > (lst->next)->data)
-			return (0);
-		lst = lst->next;
-	}
-	return (1);
-}
 
 static void	sort_3(t_stack *stacks)
 {
@@ -59,10 +48,10 @@ static void	sort_4(t_stack *stacks)
 	else if (index == 2 || index == 3)
 		while (stacks->a->data != min)
 			ft_reverse_rot(&stacks->a, A, SIMPLE);
-	ft_push(&stacks->b, &stacks->a, B);
+	ft_push(&stacks->b, &stacks->a, B, PRINT);
 	if (!is_sorted(stacks->a))
 		sort_3(stacks);
-	ft_push(&stacks->a, &stacks->b, A);
+	ft_push(&stacks->a, &stacks->b, A, PRINT);
 }
 
 static void	sort_5(t_stack *stacks)
@@ -80,17 +69,27 @@ static void	sort_5(t_stack *stacks)
 		else if (index <= 4)
 			while (stacks->a->data != min)
 				ft_reverse_rot(&stacks->a, A, SIMPLE);
-		ft_push(&stacks->b, &stacks->a, B);
+		ft_push(&stacks->b, &stacks->a, B, PRINT);
 	}
 	if (!is_sorted(stacks->a))
 		sort_3(stacks);
-	ft_push(&stacks->a, &stacks->b, A);
-	ft_push(&stacks->a, &stacks->b, A);
+	ft_push(&stacks->a, &stacks->b, A, PRINT);
+	ft_push(&stacks->a, &stacks->b, A, PRINT);
 }
 
-void	sort_large_nb(t_stack *stacks)
+void	sort_100(t_stack *stacks) // WORK IN PROGRESS
 {
+	int	i;
+	int	chunks;
 
+	i = 1;
+	chunks = 3;
+	//while (is_in_range(stacks->a, i, (stacks->size / 2) * i))
+	while (chunks)
+	{
+		if ()
+		chunks--;
+	}
 }
 
 void	sort(t_stack *stacks)
@@ -105,6 +104,32 @@ void	sort(t_stack *stacks)
 		sort_4(stacks);
 	else if (stacks->size == 5)
 		sort_5(stacks);
+	else if (stacks->size <= 100)
+		sort_100(stacks);
 	else
-		sort_large_nb(stacks);
+		sort_rest(stacks);
 }
+
+/*
+void	sort_large_nb(t_stack *stacks)
+{
+	int	min;
+	int	index;
+
+	while (stacks->a)
+	{
+		min = ft_findmin(stacks->a);
+		index = ft_findindex(stacks->a, min);
+		while (stacks->a->data != min)
+		{
+			if (index < 1 + stacks->size / 2)
+				ft_rotate(&stacks->a, A, SIMPLE);
+			else
+				ft_reverse_rot(&stacks->a, A, SIMPLE);
+		}
+		ft_push(&stacks->b, &stacks->a, B, PRINT);
+	}
+	while (stacks->b)
+		ft_push(&stacks->a, &stacks->b, A, PRINT);
+}
+*/

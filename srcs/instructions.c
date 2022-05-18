@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:12:04 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 00:51:54 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 22:57:37 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_swap(t_list *lst, char stack, int is_double)
 		ft_print_ins("s", stack);
 }
 
-void	ft_push(t_list **dest, t_list **src, char stack)
+void	ft_push(t_list **dest, t_list **src, char stack, int do_print)
 {
 	t_list	*tmp;
 
@@ -38,7 +38,8 @@ void	ft_push(t_list **dest, t_list **src, char stack)
 		ft_lstadd_front(dest, *src);
 		(*src) = tmp;
 	}
-	ft_print_ins("p", stack);
+	if (do_print == PRINT)
+		ft_print_ins("p", stack);
 }
 
 void	ft_rotate(t_list **lst, char stack, int is_double)

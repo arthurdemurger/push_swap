@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 17:41:54 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 22:14:32 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_list
 {
 	struct s_list	*next;
 	int				data;
+	int				nb;
 }	t_list;
 
 typedef struct s_stack
@@ -50,6 +51,8 @@ typedef struct s_stack
 # define REVERSE 3
 # define DOUBLE 1
 # define SIMPLE 0
+# define PRINT 0
+# define NO_PRINT 1
 # define A 'a'
 # define B 'b'
 
@@ -64,7 +67,7 @@ void	ft_init(t_stack *stacks, char **av);
 void	ft_swap(t_list *lst, char stack, int is_double);
 void	ft_print_ins(char *s, char stack);
 void	ft_double(t_stack *stacks, int ins);
-void	ft_push(t_list **dest, t_list **src, char stack);
+void	ft_push(t_list **dest, t_list **src, char stack, int do_print);
 void	ft_rotate(t_list **lst, char stack, int is_double);
 void	ft_reverse_rot(t_list **lst, char stack, int is_double);
 void	sort(t_stack *stacks);
@@ -77,6 +80,7 @@ int		ft_atoi(const char *str, t_stack *stacks);
 int		ft_findindex(t_list *lst, int nb);
 int		ft_findmax(t_list *lst);
 int		ft_findmin(t_list *lst);
+int		ft_findorder(t_list *lst, int nb);
 int		ft_isdigit(int c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);

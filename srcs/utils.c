@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_ins.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 16:21:04 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 22:50:56 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/18 23:37:27 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/18 23:37:47 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_stacks(t_stack *stacks)
+static int	is_sorted(t_list *lst)
 {
-	int	i;
-
-	i = 1;
-	printf("\n***** Stack a : *****\n");
-	while (stacks->a)
+	while (lst && lst->next)
 	{
-		printf("pos %d : %d\n", i++, stacks->a->data);
-		stacks->a = stacks->a->next;
+		if (lst->nb > (lst->next)->nb)
+			return (0);
+		lst = lst->next;
 	}
-	i = 1;
-	printf("\n***** Stack b : *****\n");
-	while (stacks->b)
-	{
-		printf("pos %d : %d\n", i++, stacks->b->data);
-		stacks->b = stacks->b->next;
-	}
+	return (1);
 }
 
-void	ft_print_ins(char *s, char name)
+int	is_in_range(t_list *lst,int start,int end)
 {
-	write (1, s, ft_strlen(s));
-	write (1, &name, 1);
-	write (1, "\n", 1);
+	while (lst)
+	{
+		if (lst->nb >= start && lst->nb <= end)
+			return (1);
+		lst = lst->next;
+	}
+	return (0);
 }

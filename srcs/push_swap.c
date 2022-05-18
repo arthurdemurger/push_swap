@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 16:49:35 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 17:02:50 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 			ft_init(&stacks, ft_split(argv[1], ' '));
 		else
 			ft_init(&stacks, argv);
+		sort(&stacks);
 		print_stacks(&stacks);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 16:45:56 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 17:27:03 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_stack
 	char	name_b;
 	t_list	*a;
 	t_list	*b;
+	int		size;
 }	t_stack;
 
 /*
@@ -49,6 +50,8 @@ typedef struct s_stack
 # define REVERSE 3
 # define DOUBLE 1
 # define SIMPLE 0
+# define A 'a'
+# define B 'b'
 
 
 /*
@@ -64,6 +67,7 @@ void	ft_double(t_stack *stacks, int ins);
 void	ft_push(t_list **dest, t_list **src, char stack);
 void	ft_rotate(t_list **lst, char stack, int is_double);
 void	ft_reverse_rot(t_list **lst, char stack, int is_double);
+void	sort(t_stack *stacks);
 
 /*
 ** Libft functions

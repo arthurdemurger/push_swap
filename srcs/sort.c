@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 17:29:12 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:06:26 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,42 @@ static void	sort_3(t_stack *stacks)
 	}
 }
 
-//static void	sort_4(t_stack *stacks)
-//{
-//	//code
-//}
+static void	sort_4(t_stack *stacks)
+{
+	int	index;
+	int	min;
 
-//static void	sort_5(t_stack *stacks)
-//{
-//	//code
-//}
+	min = ft_findmin(stacks->a);
+	index = ft_findindex(stacks->a, min);
+	if (index == 1)
+		while (stacks->a->data != min)
+			ft_rotate(&stacks->a, A, SIMPLE);
+	else if (index == 2 || index == 3)
+		while (stacks->a->data != min)
+			ft_reverse_rot(&stacks->a, A, SIMPLE);
+	ft_push(&stacks->b, &stacks->a, B);
+	if (!is_sorted(stacks->a))
+		sort_3(stacks);
+	ft_push(&stacks->a, &stacks->b, A);
+}
+
+static void	sort_5(t_stack *stacks)
+{
+	int	index;
+	int	min;
+
+	min = ft_findmin(stacks->a);
+	index = ft_findindex(stacks->a, min);
+	if (index <= 1)
+		while (stacks->a->data != min)
+			ft_rotate(&stacks->a, A, SIMPLE);
+	else if (index <= 3)
+		while (stacks->a->data != min)
+			ft_reverse_rot(&stacks->a, A, SIMPLE);
+	ft_push(&stacks->b, &stacks->a, B);
+	sort_4(stacks);
+	ft_push(&stacks->a, &stacks->b, A);
+}
 
 void	sort(t_stack *stacks)
 {
@@ -64,10 +91,10 @@ void	sort(t_stack *stacks)
 		ft_swap(stacks->a, A, SIMPLE);
 	else if (stacks->size == 3)
 		sort_3(stacks);
-	//else if (stacks->size == 4)
-	//	sort_4(stacks);
-	//else if (stacks->size == 5)
-	//	sort_5(stacks);
+	else if (stacks->size == 4)
+		sort_4(stacks);
+	else if (stacks->size == 5)
+		sort_5(stacks);
 	//else
 		//code
 }

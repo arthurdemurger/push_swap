@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_findmax.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 18:06:45 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/18 17:38:51 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/18 17:39:14 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_findmax(t_list *lst)
 {
-	t_stack	stacks;
+	int	max;
 
-	if (argc > 1)
+	max = -2147483648;
+	while (lst)
 	{
-		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
-		else
-			ft_init(&stacks, argv);
-		sort(&stacks);
-		print_stacks(&stacks);
+		if (lst->data > max)
+			max = lst->data;
+		lst = lst->next;
 	}
-	else
-		exit(1);
-	return (0);
+	return (max);
 }

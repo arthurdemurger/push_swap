@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_findmin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 18:06:45 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/18 17:37:06 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/18 17:38:43 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_findmin(t_list *lst)
 {
-	t_stack	stacks;
+	int	min;
 
-	if (argc > 1)
+	min = 2147483647;
+	while (lst)
 	{
-		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
-		else
-			ft_init(&stacks, argv);
-		sort(&stacks);
-		print_stacks(&stacks);
+		if (lst->data < min)
+			min = lst->data;
+		lst = lst->next;
 	}
-	else
-		exit(1);
-	return (0);
+	return (min);
 }

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 17:27:03 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/18 17:41:54 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ void	sort(t_stack *stacks);
 */
 
 int		ft_atoi(const char *str, t_stack *stacks);
+int		ft_findindex(t_list *lst, int nb);
+int		ft_findmax(t_list *lst);
+int		ft_findmin(t_list *lst);
 int		ft_isdigit(int c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);

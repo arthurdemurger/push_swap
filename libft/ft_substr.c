@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 18:22:47 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 16:50:27 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:54:44 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, int start, int len)
 {
 	char	*src;
 	char	*str;
-	int	size;
+	int		size;
 
 	src = (char *)s;
 	if (!s)

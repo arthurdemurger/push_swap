@@ -6,13 +6,13 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 23:37:27 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 23:37:47 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:55:46 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	is_sorted(t_list *lst)
+int	is_sorted(t_list *lst)
 {
 	while (lst && lst->next)
 	{
@@ -23,7 +23,7 @@ static int	is_sorted(t_list *lst)
 	return (1);
 }
 
-int	is_in_range(t_list *lst,int start,int end)
+int	is_in_range(t_list *lst, int start, int end)
 {
 	while (lst)
 	{

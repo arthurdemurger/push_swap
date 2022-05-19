@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/19 00:18:20 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:55:33 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ static void	sort_5(t_stack *stacks)
 	ft_push(&stacks->a, &stacks->b, A, PRINT);
 }
 
+/*
 void	sort_100(t_stack *stacks) // WORK IN PROGRESS
 {
 	int	i;
@@ -91,6 +92,7 @@ void	sort_100(t_stack *stacks) // WORK IN PROGRESS
 		chunks--;
 	}
 }
+*/
 
 void	sort(t_stack *stacks)
 {
@@ -104,10 +106,6 @@ void	sort(t_stack *stacks)
 		sort_4(stacks);
 	else if (stacks->size == 5)
 		sort_5(stacks);
-	else if (stacks->size <= 100)
-		sort_100(stacks);
-	else
-		sort_rest(stacks);
 }
 
 /*

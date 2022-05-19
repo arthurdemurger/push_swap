@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 22:14:32 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:54:09 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 typedef struct s_list
 {
 	struct s_list	*next;
+	struct s_list	*prev;
 	int				data;
 	int				nb;
 }	t_list;
@@ -56,7 +57,6 @@ typedef struct s_stack
 # define A 'a'
 # define B 'b'
 
-
 /*
 ** Main functions
 */
@@ -71,6 +71,10 @@ void	ft_push(t_list **dest, t_list **src, char stack, int do_print);
 void	ft_rotate(t_list **lst, char stack, int is_double);
 void	ft_reverse_rot(t_list **lst, char stack, int is_double);
 void	sort(t_stack *stacks);
+int		is_in_range(t_list *lst, int start, int end);
+int		is_sorted(t_list *lst);
+void	smart_rotate(t_stack *stacks, int max, int name);
+void	complex_sort(t_stack *stacks);
 
 /*
 ** Libft functions

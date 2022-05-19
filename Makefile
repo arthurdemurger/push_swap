@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/05/19 00:04:36 by ademurge         ###   ########.fr        #
+#    Updated: 2022/05/19 14:17:45 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,14 @@ BLUE		= $(shell tput -Txterm setaf 6)
 WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
-SRCS			= 	src/error.c \
+SRCS			= 	src/complex_sort.c \
+					src/error.c \
 					src/init.c \
 					src/instructions.c \
 					src/print_ins.c \
 					src/push_swap.c \
-					src/sort.c
+					src/sort.c \
+					src/utils.c
 
 LIBFT			=	libft/ft_atoi.c \
 					libft/ft_findindex.c \

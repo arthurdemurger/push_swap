@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 15:55:03 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/20 15:08:51 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/20 15:09:10 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	t_stack	stacks;
+	int		i;
+	int		x;
+	int		j;
 
-	if (argc > 1)
+	i = 1;
+	while (i < size)
 	{
-		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
-		else
-			ft_init(&stacks, argv);
-		sort(&stacks);
-		print_stacks(&stacks);
+		x = *(tab + i);
+		j = i;
+		while (j > 0 && *(tab + j - 1) > x)
+		{
+			*(tab + j) = *(tab + j - 1);
+			j -= 1;
+		}
+		*(tab + j) = x;
+		i++;
 	}
-	return (0);
 }

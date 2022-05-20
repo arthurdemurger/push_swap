@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/19 14:02:24 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:03:45 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_arg(t_stack *stacks)
 		tmp = lst->next;
 		while (tmp)
 		{
-			if (lst->data == tmp->data)
+			if (lst->nb == tmp->nb)
 				ft_error(stacks);
 			tmp = tmp->next;
 		}
@@ -31,6 +31,7 @@ void	check_arg(t_stack *stacks)
 	}
 }
 
+/*
 void	transform_stack(t_stack *stacks)
 {
 	int	i;
@@ -38,10 +39,11 @@ void	transform_stack(t_stack *stacks)
 	i = 0;
 	while (i++ < stacks->size)
 	{
-		stacks->a->nb = ft_findorder(stacks->a, stacks->a->data);
+		stacks->a->nb = ft_findorder(stacks->a, stacks->a->nb);
 		ft_rotate(&stacks->a, A, NO_PRINT);
 	}
 }
+*/
 
 void	two_way_init(t_list *lst)
 {
@@ -64,10 +66,11 @@ void	ft_init(t_stack *stacks, char **av)
 	stacks->b = NULL;
 	stacks->name_a = 'a';
 	stacks->name_b = 'b';
+	stacks->nb_chunks = 0;
 	while (av[++i])
 		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
 	two_way_init(stacks->a);
 	stacks->size = ft_lstsize(stacks->a);
 	check_arg(stacks);
-	transform_stack(stacks);
+	//transform_stack(stacks);
 }

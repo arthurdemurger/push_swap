@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/19 15:54:09 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:07:41 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_list
 {
 	struct s_list	*next;
 	struct s_list	*prev;
-	int				data;
 	int				nb;
+	int				chunk;
 }	t_list;
 
 typedef struct s_stack
@@ -41,6 +41,7 @@ typedef struct s_stack
 	t_list	*a;
 	t_list	*b;
 	int		size;
+	int		nb_chunks;
 }	t_stack;
 
 /*
@@ -71,10 +72,16 @@ void	ft_push(t_list **dest, t_list **src, char stack, int do_print);
 void	ft_rotate(t_list **lst, char stack, int is_double);
 void	ft_reverse_rot(t_list **lst, char stack, int is_double);
 void	sort(t_stack *stacks);
-int		is_in_range(t_list *lst, int start, int end);
+int		is_in_range(t_list *lst,int max);
+int		is_rev_sorted(t_list *lst);
 int		is_sorted(t_list *lst);
 void	smart_rotate(t_stack *stacks, int max, int name);
 void	complex_sort(t_stack *stacks);
+
+
+
+void	sort_large_nb(t_stack *stacks);
+
 
 /*
 ** Libft functions
@@ -83,6 +90,7 @@ void	complex_sort(t_stack *stacks);
 int		ft_atoi(const char *str, t_stack *stacks);
 int		ft_findindex(t_list *lst, int nb);
 int		ft_findmax(t_list *lst);
+int		ft_find_med(t_list *lst);
 int		ft_findmin(t_list *lst);
 int		ft_findorder(t_list *lst, int nb);
 int		ft_isdigit(int c);
@@ -94,6 +102,7 @@ void	ft_lstdelone(t_list *lst);
 t_list	*ft_lst_prelast(t_list *lst);
 t_list	*ft_lstnew(int content, t_stack *stacks);
 int		ft_lstsize(t_list *lst);
+void	ft_sort_int_tab(int *tab, int size);
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(char *src);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);

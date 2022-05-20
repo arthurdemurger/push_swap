@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_findmed.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:04:59 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 15:55:03 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/20 15:15:05 by ademurge          #+#    #+#             */
+/*   Updated: 2022/05/20 15:18:40 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_find_med(t_list *lst)
 {
-	t_stack	stacks;
+	int	array[ft_lstsize(lst)];
+	int	i;
+	int	size;
 
-	if (argc > 1)
+	size = ft_lstsize(lst);
+	i = -1;
+	while (lst)
 	{
-		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
-		else
-			ft_init(&stacks, argv);
-		sort(&stacks);
-		print_stacks(&stacks);
+		array[++i] = lst->nb;
+		lst = lst->next;
 	}
-	return (0);
+	ft_sort_int_tab(array, size);
+	return (array[size / 2]);
 }

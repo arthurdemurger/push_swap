@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:37:06 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 17:38:43 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 15:01:52 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_findmin(t_list *lst)
 	min = 2147483647;
 	while (lst)
 	{
-		if (lst->data < min)
-			min = lst->data;
+		if (lst->nb < min)
+			min = lst->nb;
 		lst = lst->next;
 	}
 	return (min);

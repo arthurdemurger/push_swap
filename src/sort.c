@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/19 15:55:33 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 15:53:24 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static void	sort_3(t_stack *stacks)
 {
-	if (stacks->a->data > stacks->a->next->data
-		&& (stacks->a->next)->data < ((stacks->a->next)->next)->data)
+	if (stacks->a->nb > stacks->a->next->nb
+		&& (stacks->a->next)->nb < ((stacks->a->next)->next)->nb)
 	{
-		if (stacks->a->data < ((stacks->a->next)->next)->data)
+		if (stacks->a->nb < ((stacks->a->next)->next)->nb)
 			ft_swap(stacks->a, A, SIMPLE);
 		else
 			ft_rotate(&stacks->a, A, SIMPLE);
 	}
-	else if (stacks->a->data < (stacks->a->next)->data)
+	else if (stacks->a->nb < (stacks->a->next)->nb)
 	{
 		ft_reverse_rot(&stacks->a, A, SIMPLE);
 		if (!is_sorted(stacks->a))
@@ -43,10 +43,10 @@ static void	sort_4(t_stack *stacks)
 	min = ft_findmin(stacks->a);
 	index = ft_findindex(stacks->a, min);
 	if (index == 1)
-		while (stacks->a->data != min)
+		while (stacks->a->nb != min)
 			ft_rotate(&stacks->a, A, SIMPLE);
 	else if (index == 2 || index == 3)
-		while (stacks->a->data != min)
+		while (stacks->a->nb != min)
 			ft_reverse_rot(&stacks->a, A, SIMPLE);
 	ft_push(&stacks->b, &stacks->a, B, PRINT);
 	if (!is_sorted(stacks->a))
@@ -64,10 +64,10 @@ static void	sort_5(t_stack *stacks)
 		min = ft_findmin(stacks->a);
 		index = ft_findindex(stacks->a, min);
 		if (index <= 2)
-			while (stacks->a->data != min)
+			while (stacks->a->nb != min)
 				ft_rotate(&stacks->a, A, SIMPLE);
 		else if (index <= 4)
-			while (stacks->a->data != min)
+			while (stacks->a->nb != min)
 				ft_reverse_rot(&stacks->a, A, SIMPLE);
 		ft_push(&stacks->b, &stacks->a, B, PRINT);
 	}
@@ -106,6 +106,8 @@ void	sort(t_stack *stacks)
 		sort_4(stacks);
 	else if (stacks->size == 5)
 		sort_5(stacks);
+	else
+		complex_sort(stacks);
 }
 
 /*
@@ -118,7 +120,7 @@ void	sort_large_nb(t_stack *stacks)
 	{
 		min = ft_findmin(stacks->a);
 		index = ft_findindex(stacks->a, min);
-		while (stacks->a->data != min)
+		while (stacks->a->nb != min)
 		{
 			if (index < 1 + stacks->size / 2)
 				ft_rotate(&stacks->a, A, SIMPLE);

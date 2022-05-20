@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 15:53:24 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:01:56 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	sort(t_stack *stacks)
 	else if (stacks->size == 5)
 		sort_5(stacks);
 	else
-		complex_sort(stacks);
+		sort_algo(stacks);
 }
 
 /*

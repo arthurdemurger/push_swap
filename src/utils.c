@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 23:37:27 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 16:07:02 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 17:27:16 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	is_rev_sorted(t_list *lst)
 	return (1);
 }
 
-int	is_in_range(t_list *lst, int max)
+int	is_in_range(t_list *lst, int min, int max)
 {
 	while (lst)
 	{
-		if (lst->nb < max)
+		if (lst->nb >= min && lst->nb <= max)
 			return (1);
 		lst = lst->next;
 	}

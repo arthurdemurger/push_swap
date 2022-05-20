@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findmed.c                                       :+:      :+:    :+:   */
+/*   ft_find_med.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:15:05 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 15:18:40 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:34:41 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_find_med(t_list *lst)
+int	ft_find_med(t_list *lst, int max)
 {
-	int	array[ft_lstsize(lst)];
+	int	array[max];
 	int	i;
 	int	size;
 
 	size = ft_lstsize(lst);
 	i = -1;
-	while (lst)
-	{
+	while (max--)
 		array[++i] = lst->nb;
-		lst = lst->next;
-	}
 	ft_sort_int_tab(array, size);
 	return (array[size / 2]);
 }

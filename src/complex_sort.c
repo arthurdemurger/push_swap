@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:25:21 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 16:41:02 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:43:24 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,84 @@ void	sort_stack(t_stack *stacks)
 		ft_push(&stacks->a, &stacks->b, A, PRINT);
 }
 
-void	complex_sort(t_stack *stacks)
+void	complex_sort2(t_stack *stacks, int med_a, int max)
 {
-	int	med;
+	int	med_b;
 
-	while (ft_lstsize(stacks->a) > 2)
+	med_b = ft_find_med(stacks->b, ft_lstsize(stacks->b));
+	while (ft_lstsize(stacks->b))
 	{
-		med = ft_find_med(stacks->a);
-		while (is_in_range(stacks->a, med))
+		if (stacks->b->nb >= med_b)
 		{
-			if (stacks->a->nb < med)
-				ft_push(&stacks->b, &stacks->a, B, PRINT);
-			else if (ft_lstlast(stacks->a)->nb < med)
-			{
+			while (stacks->a->nb >= med_b && stacks->a->nb
+				&& stacks->a->nb < stacks->b->nb)
+				ft_rotate(&stacks->a, A, SIMPLE);
+			ft_push(&stacks->a, &stacks->b, A, PRINT);
+			while (ft_lstlast(stacks->a)->nb >= med_b)
 				ft_reverse_rot(&stacks->a, A, SIMPLE);
-				ft_push(&stacks->b, &stacks->a, B, PRINT);
-			}
-			else
+		}
+		else if (stacks->b->nb < med_b)
+		{
+			while (ft_lstlast(stacks->a)->nb >= med_a
+				&& ft_lstlast(stacks->a)->nb > stacks->b->nb)
+				ft_reverse_rot(&stacks->a, A, SIMPLE);
+			ft_push(&stacks->a, &stacks->b, A, PRINT);
+			while (stacks->a->nb >= med_a && stacks->a->nb < med_b)
 				ft_rotate(&stacks->a, A, SIMPLE);
 		}
 	}
-	if (!is_sorted(stacks->a))
-		ft_swap(stacks->a, A, SIMPLE);
+	while (stacks->a->nb >= med_a)
+		ft_rotate(&stacks->a, A, SIMPLE);
 }
+
+void	complex_sort(t_stack *stacks, int med, int max)
+{
+	while (is_in_range(stacks->a, med, ft_findmax(stacks->a)))
+	{
+		if (stacks->a->nb >= med)
+			ft_push(&stacks->b, &stacks->a, B, PRINT);
+		else if (ft_lstlast(stacks->a)->nb >= med)
+		{
+			ft_reverse_rot(&stacks->a, A, SIMPLE);
+			ft_push(&stacks->b, &stacks->a, B, PRINT);
+		}
+		else
+			ft_rotate(&stacks->a, A, SIMPLE);
+	}
+	complex_sort2(stacks, med, max);
+}
+
+int	nb_bfr_med(t_list *lst, int med)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		if (lst->nb < med)
+			i++;
+		lst = lst->next;
+	}
+	return (i);
+}
+
+void	sort_algo(t_stack *stacks)
+{
+	int	med;
+	int	old_med;
+	int	max;
+
+	med = ft_find_med(stacks->a, stacks->size);
+	complex_sort(stacks, med, ft_findmax(stacks->a));
+	while (nb_bfr_med(stacks->a, med) >= 2)
+	{
+		old_med = med;
+		max = nb_bfr_med(stacks->a, med);
+		med = ft_find_med(stacks->a, max);
+		complex_sort(stacks, med, old_med);
+	}
+}
+
 
 /*
 int	find_nb_chunks(t_list *lst, int chunk)

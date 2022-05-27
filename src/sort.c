@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 18:01:56 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:22:26 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static void	sort_3(t_stack *stacks)
 {
-	if (stacks->a->nb > stacks->a->next->nb
-		&& (stacks->a->next)->nb < ((stacks->a->next)->next)->nb)
+	if (stacks->a->data > stacks->a->next->data
+		&& (stacks->a->next)->data < ((stacks->a->next)->next)->data)
 	{
-		if (stacks->a->nb < ((stacks->a->next)->next)->nb)
+		if (stacks->a->data < ((stacks->a->next)->next)->data)
 			ft_swap(stacks->a, A, SIMPLE);
 		else
 			ft_rotate(&stacks->a, A, SIMPLE);
 	}
-	else if (stacks->a->nb < (stacks->a->next)->nb)
+	else if (stacks->a->data < (stacks->a->next)->data)
 	{
 		ft_reverse_rot(&stacks->a, A, SIMPLE);
 		if (!is_sorted(stacks->a))
@@ -43,10 +43,10 @@ static void	sort_4(t_stack *stacks)
 	min = ft_findmin(stacks->a);
 	index = ft_findindex(stacks->a, min);
 	if (index == 1)
-		while (stacks->a->nb != min)
+		while (stacks->a->data != min)
 			ft_rotate(&stacks->a, A, SIMPLE);
 	else if (index == 2 || index == 3)
-		while (stacks->a->nb != min)
+		while (stacks->a->data != min)
 			ft_reverse_rot(&stacks->a, A, SIMPLE);
 	ft_push(&stacks->b, &stacks->a, B, PRINT);
 	if (!is_sorted(stacks->a))
@@ -64,10 +64,10 @@ static void	sort_5(t_stack *stacks)
 		min = ft_findmin(stacks->a);
 		index = ft_findindex(stacks->a, min);
 		if (index <= 2)
-			while (stacks->a->nb != min)
+			while (stacks->a->data != min)
 				ft_rotate(&stacks->a, A, SIMPLE);
 		else if (index <= 4)
-			while (stacks->a->nb != min)
+			while (stacks->a->data != min)
 				ft_reverse_rot(&stacks->a, A, SIMPLE);
 		ft_push(&stacks->b, &stacks->a, B, PRINT);
 	}

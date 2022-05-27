@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:12:04 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 15:02:27 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:23:15 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	ft_swap(t_list *lst, char stack, int is_double)
 		tmp = lst->nb;
 		lst->nb = lst->next->nb;
 		lst->next->nb = tmp;
+		tmp = lst->data;
+		lst->data = lst->next->data;
+		lst->next->data = tmp;
 	}
 	if (!is_double)
 		ft_print_ins("s", stack);

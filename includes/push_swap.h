@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 18:36:06 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:20:19 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_list
 {
 	struct s_list	*next;
 	struct s_list	*prev;
+	int				data;
 	int				nb;
 	int				chunk;
 }	t_list;

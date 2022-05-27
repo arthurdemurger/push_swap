@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/20 16:03:45 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:21:56 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,25 @@ void	check_arg(t_stack *stacks)
 	}
 }
 
-/*
 void	transform_stack(t_stack *stacks)
 {
 	int	i;
+	int	array[stacks->size];
 
-	i = 0;
-	while (i++ < stacks->size)
+	i = -1;
+	while (++i < stacks->size)
 	{
-		stacks->a->nb = ft_findorder(stacks->a, stacks->a->nb);
-		ft_rotate(&stacks->a, A, NO_PRINT);
+		array[i] = stacks->data;
+		stacks = stacks->next;
+	}
+	ft_sort_int_tab(array, stacks->size);
+	i = -1;
+	while (++i < stacks->size)
+	{
+		stacks->nb = i;
+		stacks = stacks->next;
 	}
 }
-*/
 
 void	two_way_init(t_list *lst)
 {
@@ -72,5 +78,5 @@ void	ft_init(t_stack *stacks, char **av)
 	two_way_init(stacks->a);
 	stacks->size = ft_lstsize(stacks->a);
 	check_arg(stacks);
-	//transform_stack(stacks);
+	transform_stack(stacks);
 }

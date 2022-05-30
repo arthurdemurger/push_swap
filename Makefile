@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/05/20 15:17:56 by ademurge         ###   ########.fr        #
+#    Updated: 2022/05/31 01:53:28 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,19 +20,18 @@ BLUE		= $(shell tput -Txterm setaf 6)
 WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
-SRCS			= 	src/complex_sort.c \
-					src/error.c \
+SRCS			= 	src/error.c \
+					src/free.c \
 					src/init.c \
 					src/instructions.c \
+					src/main.c \
 					src/print_ins.c \
-					src/push_swap.c \
 					src/sort.c \
 					src/utils.c
 
 LIBFT			=	libft/ft_atoi.c \
 					libft/ft_findindex.c \
 					libft/ft_findmax.c \
-					libft/ft_findmed.c \
 					libft/ft_findmin.c \
 					libft/ft_findorder.c \
 					libft/ft_lst_prelast.c \
@@ -53,7 +52,7 @@ LIBFT			=	libft/ft_atoi.c \
 
 NAME			= push_swap
 
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -fsanitize=address
 
 all:			$(NAME)
 

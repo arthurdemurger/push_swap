@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/27 13:20:19 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/31 01:13:33 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_list
 	struct s_list	*prev;
 	int				data;
 	int				nb;
-	int				chunk;
 }	t_list;
 
 typedef struct s_stack
@@ -42,7 +41,6 @@ typedef struct s_stack
 	t_list	*a;
 	t_list	*b;
 	int		size;
-	int		nb_chunks;
 }	t_stack;
 
 /*
@@ -73,16 +71,10 @@ void	ft_push(t_list **dest, t_list **src, char stack, int do_print);
 void	ft_rotate(t_list **lst, char stack, int is_double);
 void	ft_reverse_rot(t_list **lst, char stack, int is_double);
 void	sort(t_stack *stacks);
-int		is_in_range(t_list *lst,int min, int max);
-int		is_rev_sorted(t_list *lst);
+int		is_in_range(t_list *lst, int min, int max);
 int		is_sorted(t_list *lst);
-void	smart_rotate(t_stack *stacks, int max, int name);
-
-
-
-void	sort_algo(t_stack *stacks);
-void	sort_large_nb(t_stack *stacks);
-
+void	radix_sort(t_stack *stacks);
+void	free_stacks(t_stack *stacks);
 
 /*
 ** Libft functions
@@ -90,8 +82,6 @@ void	sort_large_nb(t_stack *stacks);
 
 int		ft_atoi(const char *str, t_stack *stacks);
 int		ft_findindex(t_list *lst, int nb);
-int		ft_findmax(t_list *lst);
-int		ft_find_med(t_list *lst, int max);
 int		ft_findmin(t_list *lst);
 int		ft_findorder(t_list *lst, int nb);
 int		ft_isdigit(int c);

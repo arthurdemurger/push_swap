@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/27 13:21:56 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/31 01:46:08 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_arg(t_stack *stacks)
 		tmp = lst->next;
 		while (tmp)
 		{
-			if (lst->nb == tmp->nb)
+			if (lst->data == tmp->data)
 				ft_error(stacks);
 			tmp = tmp->next;
 		}
@@ -34,20 +34,14 @@ void	check_arg(t_stack *stacks)
 void	transform_stack(t_stack *stacks)
 {
 	int	i;
-	int	array[stacks->size];
+	t_list *tmp;
 
-	i = -1;
-	while (++i < stacks->size)
+	i = 0;
+	tmp = stacks->a;
+	while (i++ < stacks->size)
 	{
-		array[i] = stacks->data;
-		stacks = stacks->next;
-	}
-	ft_sort_int_tab(array, stacks->size);
-	i = -1;
-	while (++i < stacks->size)
-	{
-		stacks->nb = i;
-		stacks = stacks->next;
+		tmp->nb = ft_findorder(stacks->a, tmp->data);
+		tmp = tmp->next;
 	}
 }
 
@@ -66,13 +60,12 @@ void	two_way_init(t_list *lst)
 
 void	ft_init(t_stack *stacks, char **av)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	stacks->b = NULL;
 	stacks->name_a = 'a';
 	stacks->name_b = 'b';
-	stacks->nb_chunks = 0;
 	while (av[++i])
 		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
 	two_way_init(stacks->a);

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 13:56:32 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/31 01:51:05 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/31 15:03:29 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else if (!*lst)
 		*lst = new;
 	else
-	{
-		new->next = NULL;
 		ft_lstlast(*lst)->next = new;
-	}
 }

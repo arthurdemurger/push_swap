@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/31 01:13:33 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/31 15:02:27 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 typedef struct s_list
 {
 	struct s_list	*next;
-	struct s_list	*prev;
 	int				data;
 	int				nb;
 }	t_list;
@@ -91,7 +90,7 @@ void	ft_lstclear(t_list **lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstdelone(t_list *lst);
 t_list	*ft_lst_prelast(t_list *lst);
-t_list	*ft_lstnew(int content, t_stack *stacks);
+t_list	*ft_lstnew(int data, t_stack *stacks);
 int		ft_lstsize(t_list *lst);
 void	ft_sort_int_tab(int *tab, int size);
 char	**ft_split(char const *s, char c);

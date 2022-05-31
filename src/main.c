@@ -23,8 +23,7 @@ int	main(int argc, char **argv)
 		else
 			ft_init(&stacks, argv);
 		sort(&stacks);
-		//free_stacks(&stacks);
+		free_stacks(&stacks);
 	}
-	//system("leaks push_swap");
 	return (0);
 }

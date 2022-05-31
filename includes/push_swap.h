@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/31 15:02:27 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/01 00:01:02 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,11 @@ char	*ft_strdup(char *src);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 int		ft_strlen(char *s);
 char	*ft_substr(char const *s, int start, int len);
+
+/*
+** GNL functions
+*/
+
+char	*get_next_line(int fd);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/05/31 15:09:18 by ademurge         ###   ########.fr        #
+#    Updated: 2022/06/01 00:02:21 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,9 @@ LIBFT			=	libft/ft_atoi.c \
 					libft/ft_strlcpy.c \
 					libft/ft_strlen.c \
 					libft/ft_substr.c
+
+GNL				=	gnl/get_net_line.c \
+					gnl/get_net_line_utils.c
 
 NAME			= push_swap
 

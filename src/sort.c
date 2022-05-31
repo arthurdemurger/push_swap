@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/31 00:53:52 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/05/31 23:48:44 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,16 @@ static void	sort_5(t_stack *stacks)
 	int	index;
 	int	min;
 
-	while (ft_lstsize(stacks->b) != 2)
-	{
-		min = ft_findmin(stacks->a);
-		index = ft_findindex(stacks->a, min);
-		if (index >= 0 && index <= 2)
-			while (stacks->a->data != min)
-				ft_rotate(&stacks->a, A, SIMPLE);
-		else if (index >= 3 && index <= 4)
-			while (stacks->a->data != min)
-				ft_reverse_rot(&stacks->a, A, SIMPLE);
-		ft_push(&stacks->b, &stacks->a, B, PRINT);
-	}
-	if (!is_sorted(stacks->a))
-		sort_3(stacks);
-	ft_push(&stacks->a, &stacks->b, A, PRINT);
+	min = ft_findmin(stacks->a);
+	index = ft_findindex(stacks->a, min);
+	if (index <= 2)
+		while (stacks->a->data != min)
+			ft_rotate(&stacks->a, A, SIMPLE);
+	else if (index >= 3)
+		while (stacks->a->data != min)
+			ft_reverse_rot(&stacks->a, A, SIMPLE);
+	ft_push(&stacks->b, &stacks->a, B, PRINT);
+	sort_4(stacks);
 	ft_push(&stacks->a, &stacks->b, A, PRINT);
 }
 
@@ -104,6 +99,29 @@ void	radix_sort(t_stack *stacks)
 	}
 }
 
+void	sort_43(t_stack *stacks)
+{
+	int	min;
+	int	index;
+	while (ft_lstsize(stacks->a) > 3)
+	{
+		min = ft_findmin(stacks->a);
+		index = ft_findindex(stacks->a, min);
+		while (stacks->a->data != min)
+		{
+			if (index < 1 + stacks->size / 2)
+				ft_rotate(&stacks->a, A, SIMPLE);
+			else
+				ft_reverse_rot(&stacks->a, A, SIMPLE);
+		}
+		ft_push(&stacks->b, &stacks->a, B, PRINT);
+	}
+	if (!is_sorted(stacks->a))
+		sort_3(stacks);
+	while (stacks->b)
+		ft_push(&stacks->a, &stacks->b, A, PRINT);
+}
+
 void	sort(t_stack *stacks)
 {
 	if (is_sorted(stacks->a))
@@ -116,6 +134,8 @@ void	sort(t_stack *stacks)
 		sort_4(stacks);
 	else if (stacks->size == 5)
 		sort_5(stacks);
+	else if (stacks->size <= 43)
+		sort_43(stacks);
 	else
 		radix_sort(stacks);
 }

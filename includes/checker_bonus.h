@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/01 23:45:38 by ademurge         ###   ########.fr       */
+/*   Created: 2022/06/02 00:24:20 by ademurge          #+#    #+#             */
+/*   Updated: 2022/06/02 00:26:30 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
 
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+
+# define CHECKER_BONUS_H
 
 /*
 ** Libraries
@@ -70,10 +71,8 @@ void	ft_double(t_stack *stacks, int ins);
 void	ft_push(t_list **dest, t_list **src, char stack, int do_print);
 void	ft_rotate(t_list **lst, char stack, int is_double);
 void	ft_reverse_rot(t_list **lst, char stack, int is_double);
-void	sort(t_stack *stacks);
 int		is_in_range(t_list *lst, int min, int max);
 int		is_sorted(t_list *lst);
-void	radix_sort(t_stack *stacks);
 void	free_stacks(t_stack *stacks);
 
 /*

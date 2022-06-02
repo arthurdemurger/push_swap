@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/06/02 00:33:16 by ademurge         ###   ########.fr        #
+#    Updated: 2022/06/02 16:17:10 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ BLUE		= $(shell tput -Txterm setaf 6)
 WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
-SRC			= 	src/error.c \
+SRC			= 		src/complex_sort.c \
+					src/error.c \
 					src/free.c \
 					src/init.c \
 					src/instructions.c \
@@ -83,7 +84,7 @@ clean:
 				@echo "$(PURPLE)********** Objects removed. $(RESET)"
 
 fclean:			clean
-				@rm -f $(NAME)
+				@rm -f $(NAME) $(BONUS_NAME)
 				@echo "$(LIGHTPURPLE)********** Executable removed. $(RESET)"
 
 re:				fclean all

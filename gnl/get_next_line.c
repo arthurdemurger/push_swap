@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 23:08:43 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 00:31:46 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:00:49 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*get_next_line(int fd)
 	int			n;
 
 	if (BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
-		return(gnl_free(NULL));
+		return (gnl_free(NULL));
 	buf = (char *) malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (gnl_free(buf));

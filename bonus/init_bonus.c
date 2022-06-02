@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 00:38:42 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/02 15:32:21 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_init(t_stack *stacks, char **av)
 	int		i;
 
 	i = 0;
+	stacks->a = NULL;
 	stacks->b = NULL;
 	stacks->name_a = A;
 	stacks->name_b = B;

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/01 23:45:38 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:02:54 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		is_in_range(t_list *lst, int min, int max);
 int		is_sorted(t_list *lst);
 void	radix_sort(t_stack *stacks);
 void	free_stacks(t_stack *stacks);
+void	radix_sort(t_stack *stacks);
 
 /*
 ** Libft functions

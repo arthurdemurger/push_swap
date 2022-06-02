@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 16:02:54 by ademurge         ###   ########.fr       */
+/*   Created: 2022/06/02 00:24:20 by ademurge          #+#    #+#             */
+/*   Updated: 2022/06/02 16:10:24 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
 
-# define PUSH_SWAP_H
+# define CHECKER_BONUS_H
 
 /*
 ** Libraries
@@ -46,7 +46,7 @@ typedef struct s_stack
 ** Define constants
 */
 
-# define STDIN 1
+# define CMD_ERROR 0
 # define SWAP 1
 # define ROTATE 2
 # define REVERSE 3
@@ -64,18 +64,15 @@ typedef struct s_stack
 void	print_stacks(t_stack *stacks); // TO DELETE !!!!!!!!!!!!!!!!!!!!
 void	ft_error(t_stack *stacks);
 void	ft_init(t_stack *stacks, char **av);
-void	ft_swap(t_list *lst, char stack, int is_double);
+void	ft_swap(t_list *lst);
 void	ft_print_ins(char *s, char stack);
 void	ft_double(t_stack *stacks, int ins);
-void	ft_push(t_list **dest, t_list **src, char stack, int do_print);
-void	ft_rotate(t_list **lst, char stack, int is_double);
-void	ft_reverse_rot(t_list **lst, char stack, int is_double);
-void	sort(t_stack *stacks);
+void	ft_push(t_list **dest, t_list **src);
+void	ft_rotate(t_list **lst);
+void	ft_reverse_rot(t_list **lst);
 int		is_in_range(t_list *lst, int min, int max);
 int		is_sorted(t_list *lst);
-void	radix_sort(t_stack *stacks);
 void	free_stacks(t_stack *stacks);
-void	radix_sort(t_stack *stacks);
 
 /*
 ** Libft functions

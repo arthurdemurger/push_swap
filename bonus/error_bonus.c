@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:56:32 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 00:39:10 by ademurge         ###   ########.fr       */
+/*   Created: 2022/05/13 18:53:17 by ademurge          #+#    #+#             */
+/*   Updated: 2022/06/02 00:28:33 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker_bonus.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_error(t_stack *stacks)
 {
-	if (!lst || !new)
-		return ;
-	else if (!*lst)
-		*lst = new;
-	else
-		ft_lstlast(*lst)->next = new;
+	if (stacks->a)
+		ft_lstclear(&(stacks->a));
+	if (stacks->b)
+		ft_lstclear(&(stacks->b));
+	write(1, "Error\n", 7);
+	exit(EXIT_FAILURE);
 }

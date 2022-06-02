@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:56:32 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 00:39:10 by ademurge         ###   ########.fr       */
+/*   Created: 2022/06/02 16:02:19 by ademurge          #+#    #+#             */
+/*   Updated: 2022/06/02 16:02:45 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	radix_sort(t_stack *stacks)
 {
-	if (!lst || !new)
-		return ;
-	else if (!*lst)
-		*lst = new;
-	else
-		ft_lstlast(*lst)->next = new;
+	int	max;
+	int	bits;
+	int	i;
+	int	j;
+
+	max = stacks->size;
+	bits = 0;
+	i = -1;
+	while ((max >> bits))
+		bits++;
+	while (++i < bits)
+	{
+		j = -1;
+		while (++j < stacks->size)
+		{
+			if (((stacks->a->nb >> i) & 1) == 1)
+				ft_rotate(&stacks->a, A, SIMPLE);
+			else
+				ft_push(&stacks->b, &stacks->a, B, SIMPLE);
+		}
+		while (ft_lstsize(stacks->b))
+			ft_push(&stacks->a, &stacks->b, A, SIMPLE);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/31 23:48:44 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:02:08 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,37 +72,11 @@ static void	sort_5(t_stack *stacks)
 	ft_push(&stacks->a, &stacks->b, A, PRINT);
 }
 
-void	radix_sort(t_stack *stacks)
-{
-	int	max;
-	int	bits;
-	int	i;
-	int	j;
-
-	max = stacks->size;
-	bits = 0;
-	i = -1;
-	while ((max >> bits))
-		bits++;
-	while (++i < bits)
-	{
-		j = -1;
-		while (++j < stacks->size)
-		{
-			if (((stacks->a->nb >> i) & 1) == 1)
-				ft_rotate(&stacks->a, A, SIMPLE);
-			else
-				ft_push(&stacks->b, &stacks->a, B, SIMPLE);
-		}
-		while (ft_lstsize(stacks->b))
-			ft_push(&stacks->a, &stacks->b, A, SIMPLE);
-	}
-}
-
 void	sort_43(t_stack *stacks)
 {
 	int	min;
 	int	index;
+
 	while (ft_lstsize(stacks->a) > 3)
 	{
 		min = ft_findmin(stacks->a);

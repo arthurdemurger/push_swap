@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:28:57 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/17 14:48:46 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:49:54 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_atoi(const char *str, t_stack *stacks)
 			sign *= -1;
 		i++;
 	}
+	while (str[i] == '0')
+		i++;
 	while (str[i] >= '0' && str[i] <= '9' && ++size)
 		sum = sum * 10 + str[i++] - 48;
 	sum *= sign;

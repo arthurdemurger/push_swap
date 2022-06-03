@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 15:28:47 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/03 10:21:18 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,16 @@ void	transform_stack(t_stack *stacks)
 	}
 }
 
+void	prev_init(t_list *lst)
+{
+	lst->prev = NULL;
+	while (lst && lst->next)
+	{
+		(lst->next)->prev = lst;
+		lst = lst->next;
+	}
+}
+
 void	ft_init(t_stack *stacks, char **av)
 {
 	int		i;
@@ -57,6 +67,7 @@ void	ft_init(t_stack *stacks, char **av)
 	while (av[++i])
 		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
 	stacks->size = ft_lstsize(stacks->a);
+	prev_init(stacks->a);
 	check_arg(stacks);
 	transform_stack(stacks);
 }

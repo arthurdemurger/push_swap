@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/03 09:31:37 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/03 10:43:19 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 typedef struct s_list
 {
 	struct s_list	*next;
+	struct s_list	*prev;
 	int				data;
 	int				nb;
 }	t_list;
@@ -46,6 +47,8 @@ typedef struct s_stack
 ** Define constants
 */
 
+# define TOP 1
+# define BOTTOM 0
 # define STDIN 1
 # define SWAP 1
 # define ROTATE 2
@@ -75,7 +78,7 @@ int		is_in_range(t_list *lst, int max);
 int		is_sorted(t_list *lst);
 void	radix_sort(t_stack *stacks);
 void	free_stacks(t_stack *stacks);
-void	radix_sort(t_stack *stacks);
+void	split_in_chunks(t_stack *stacks);
 
 /*
 ** Libft functions

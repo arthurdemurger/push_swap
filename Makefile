@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/06/03 01:00:40 by ademurge         ###   ########.fr        #
+#    Updated: 2022/06/03 09:26:53 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC			=		src/complex_sort.c \
 LIBFT			=	libft/ft_atoi.c \
 					libft/ft_findindex.c \
 					libft/ft_findmax.c \
+					libft/ft_findmed.c \
 					libft/ft_findmin.c \
 					libft/ft_findorder.c \
 					libft/ft_lst_prelast.c \

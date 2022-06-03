@@ -1,46 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_findmed.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/18 23:37:27 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/03 09:31:31 by ademurge         ###   ########.fr       */
+/*   Created: 2022/06/03 09:26:21 by ademurge          #+#    #+#             */
+/*   Updated: 2022/06/03 09:30:29 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_sorted(t_list *lst)
+int	ft_find_med(t_list *lst)
 {
-	while (lst && lst->next)
-	{
-		if (lst->nb > (lst->next)->nb)
-			return (0);
-		lst = lst->next;
-	}
-	return (1);
-}
+	int	*array;
+	int	i;
+	int	size;
 
-int	is_rev_sorted(t_list *lst)
-{
-	while (lst && lst->next)
-	{
-		if (lst->nb < (lst->next)->nb)
-			return (0);
-		lst = lst->next;
-	}
-	return (1);
-}
-
-int	is_in_range(t_list *lst, int max)
-{
+	size = ft_lstsize(lst);
+	array = malloc(sizeof(int) * size);
+	i = -1;
 	while (lst)
 	{
-		if (lst->nb < max)
-			return (1);
+		array[++i] = lst->data;
 		lst = lst->next;
 	}
-	return (0);
+	ft_sort_int_tab(array, size);
+	i = array[size / 2];
+	free(array);
+	return (i);
 }

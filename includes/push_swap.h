@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 16:02:54 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/03 09:31:37 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_push(t_list **dest, t_list **src, char stack, int do_print);
 void	ft_rotate(t_list **lst, char stack, int is_double);
 void	ft_reverse_rot(t_list **lst, char stack, int is_double);
 void	sort(t_stack *stacks);
-int		is_in_range(t_list *lst, int min, int max);
+int		is_in_range(t_list *lst, int max);
 int		is_sorted(t_list *lst);
 void	radix_sort(t_stack *stacks);
 void	free_stacks(t_stack *stacks);
@@ -83,6 +83,7 @@ void	radix_sort(t_stack *stacks);
 
 int		ft_atoi(const char *str, t_stack *stacks);
 int		ft_findindex(t_list *lst, int nb);
+int		ft_find_med(t_list *lst);
 int		ft_findmin(t_list *lst);
 int		ft_findorder(t_list *lst, int nb);
 int		ft_isdigit(int c);

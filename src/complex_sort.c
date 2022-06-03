@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/03 10:43:06 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/03 16:39:24 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ int	smart_rotate(t_list *lst, int max)
 
 void	split_in_chunks(t_stack *stacks)
 {
-	int	size;
 	int	med;
 	int	rot;
 
-	size = stacks->size;
 	while (ft_lstsize(stacks->a) > 3)
 	{
 		med = ft_find_med(stacks->a);

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:12:04 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/31 01:28:16 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/03 17:59:50 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,20 @@ void	ft_double(t_stack *stacks, int ins)
 {
 	if (ins == SWAP)
 	{
-		ft_swap(stacks->a, stacks->name_a, DOUBLE);
-		ft_swap(stacks->b, stacks->name_b, DOUBLE);
+		ft_swap(stacks->a, A, DOUBLE);
+		ft_swap(stacks->b, B, DOUBLE);
 		write (1, "ss\n", 3);
 	}
 	else if (ins == ROTATE)
 	{
-		ft_rotate(&stacks->a, stacks->name_a, DOUBLE);
-		ft_rotate(&stacks->b, stacks->name_b, DOUBLE);
+		ft_rotate(&stacks->a, A, DOUBLE);
+		ft_rotate(&stacks->b, B, DOUBLE);
 		write (1, "rr\n", 3);
 	}
 	else if (ins == REVERSE)
 	{
-		ft_reverse_rot(&stacks->a, stacks->name_a, DOUBLE);
-		ft_reverse_rot(&stacks->b, stacks->name_b, DOUBLE);
+		ft_reverse_rot(&stacks->a, A, DOUBLE);
+		ft_reverse_rot(&stacks->b, B, DOUBLE);
 		write (1, "rrr\n", 4);
 	}
 }

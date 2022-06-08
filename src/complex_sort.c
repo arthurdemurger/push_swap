@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/03 16:39:24 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 12:50:35 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 int	smart_rotate(t_list *lst, int max)
 {
 	int		top;
-	int		bott;
+	int		bot;
 	t_list	*tmp;
 
 	tmp = ft_lstlast(lst);
 	top = 0;
-	bott = 1;
+	bot = 1;
 	while (lst)
 	{
 		if (lst->data < max)
@@ -41,10 +41,10 @@ int	smart_rotate(t_list *lst, int max)
 	{
 		if (tmp->data < max)
 			break ;
-		bott++;
+		bot++;
 		tmp = tmp->prev;
 	}
-	if (top <= bott)
+	if (top <= bot)
 		return (TOP);
 	else
 		return (BOTTOM);
@@ -60,9 +60,8 @@ void	split_in_chunks(t_stack *stacks)
 		med = ft_find_med(stacks->a);
 		while (is_in_range(stacks->a, med))
 		{
-			//push b the numbers < med BUT efficiently
 			rot = smart_rotate(stacks->a, med);
-			if (rot == TOP)
+			if (rot == TOP && stacks->a->data >= med)
 				while (stacks->a->data >= med)
 					ft_rotate(&stacks->a, A, SIMPLE);
 			else if (rot == BOTTOM)
@@ -71,11 +70,16 @@ void	split_in_chunks(t_stack *stacks)
 			ft_push(&stacks->b, &stacks->a, B, PRINT);
 		}
 	}
+	if (!is_sorted(stacks->a))
+	{
+		if (ft_lstsize(stacks->a) == 3)
+			sort_3(stacks);
+		else
+			ft_swap(stacks->a, A, SIMPLE);
+	}
 }
 
-/*
 void	smart_push(t_stack *stacks)
 {
 	// code
 }
-*/

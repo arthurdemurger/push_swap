@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/03 17:58:57 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 12:43:52 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		is_in_range(t_list *lst, int max);
 int		is_sorted(t_list *lst);
 void	radix_sort(t_stack *stacks);
 void	free_stacks(t_stack *stacks);
+void	sort_3(t_stack *stacks);
 void	split_in_chunks(t_stack *stacks);
 
 /*

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 23:37:27 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/03 09:31:31 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 12:40:13 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	is_in_range(t_list *lst, int max)
 {
 	while (lst)
 	{
-		if (lst->nb < max)
+		if (lst->data < max)
 			return (1);
 		lst = lst->next;
 	}

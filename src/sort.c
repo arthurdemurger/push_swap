@@ -6,13 +6,13 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 16:02:08 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 12:43:47 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	sort_3(t_stack *stacks)
+void	sort_3(t_stack *stacks)
 {
 	if (stacks->a->data > stacks->a->next->data
 		&& (stacks->a->next)->data < ((stacks->a->next)->next)->data)
@@ -109,7 +109,7 @@ void	sort(t_stack *stacks)
 	else if (stacks->size == 5)
 		sort_5(stacks);
 	else if (stacks->size <= 43)
-		sort_43(stacks);
+		split_in_chunks(stacks);
 	else
 		radix_sort(stacks);
 }

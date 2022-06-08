@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/08 12:50:35 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 15:09:03 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,51 @@ int	smart_rotate(t_list *lst, int max)
 		return (BOTTOM);
 }
 
+void	smart_push(t_stack *stacks)
+{
+	if (stacks->a->data < stacks->b->data)
+	{
+		if ((stacks->a->next)->data > stacks->b->data)
+		{
+			ft_push(&stacks->a, &stacks->b, A, PRINT);
+			ft_swap(stacks->a, A, SIMPLE);
+		}
+		else
+		{
+			while (stacks->a->data < stacks->b->data)
+				ft_rotate(&stacks->a, A, SIMPLE);
+			ft_push(&stacks->a, &stacks->b, A, PRINT);
+		}
+	}
+	else if (ft_lstlast(stacks->a)->data < stacks->a->data)
+	{
+		while (ft_lstlast(stacks->a)->data < stacks->a->data
+			&& ft_lstlast(stacks->a)->data > stacks->b->data)
+			ft_reverse_rot(&stacks->a, A, SIMPLE);
+		ft_push(&stacks->a, &stacks->b, A, PRINT);
+	}
+	else
+		ft_push(&stacks->a, &stacks->b, A, PRINT);
+}
+
+void	push_split(t_stack *stacks)
+{
+	while (ft_lstsize(stacks->b) > 1)
+	{
+		if (stacks->b->data < (stacks->b->next)->data
+			&& (stacks->b->next)->data > ft_lstlast(stacks->b)->data)
+			ft_rotate(&stacks->b, B, SIMPLE);
+		else if (stacks->b->data < (stacks->b->next)->data
+			&& (stacks->b->next)->data < ft_lstlast(stacks->b)->data)
+			ft_reverse_rot(&stacks->b, B, SIMPLE);
+		while (stacks->b->data > (stacks->b->next)->data
+			&& stacks->b->data < ft_lstlast(stacks->b)->data)
+			ft_reverse_rot(&stacks->b, B, SIMPLE);
+		smart_push(stacks);
+	}
+	smart_push(stacks);
+}
+
 void	split_in_chunks(t_stack *stacks)
 {
 	int	med;
@@ -77,9 +122,5 @@ void	split_in_chunks(t_stack *stacks)
 		else
 			ft_swap(stacks->a, A, SIMPLE);
 	}
-}
-
-void	smart_push(t_stack *stacks)
-{
-	// code
+	push_split(stacks);
 }

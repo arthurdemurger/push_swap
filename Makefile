@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/06/03 09:26:53 by ademurge         ###   ########.fr        #
+#    Updated: 2022/06/08 15:12:25 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,18 +54,18 @@ LIBFT			=	libft/ft_atoi.c \
 					libft/ft_strlen.c \
 					libft/ft_substr.c
 
-BONUS_SRC		=	bonus/checker_bonus.c \
-					bonus/error_bonus.c \
+BONUS_SRC		=	bonus/error_bonus.c \
 					bonus/free_bonus.c \
 					bonus/init_bonus.c \
 					bonus/instructions_bonus.c \
+					bonus/main_bonus.c \
 					bonus/print_ins_bonus.c \
 					bonus/utils_bonus.c
 
 GNL				=	gnl/get_next_line.c \
 					gnl/get_next_line_utils.c
 
-BONUS_NAME		= checker
+BONUS_NAME		= checker_bonus
 
 NAME			= push_swap
 

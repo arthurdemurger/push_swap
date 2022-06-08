@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 16:21:04 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 00:28:47 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 18:24:15 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	print_stacks(t_stack *stacks)
 	printf("\n***** Stack a : *****\n");
 	while (stacks->a)
 	{
-		printf("pos %d : %d\n", i++, stacks->a->data);
+		printf("[%d] : %d\n", i++, stacks->a->data);
 		stacks->a = stacks->a->next;
 	}
-	i = 1;
 	printf("\n***** Stack b : *****\n");
+	i = 1;
 	while (stacks->b)
 	{
-		printf("pos %d : %d\n", i++, stacks->b->data);
+		printf("[%d] : %d\n", i++, stacks->b->data);
 		stacks->b = stacks->b->next;
 	}
 }

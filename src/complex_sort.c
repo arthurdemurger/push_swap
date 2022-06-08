@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/08 16:34:19 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 17:32:00 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,5 @@ void	split_in_chunks(t_stack *stacks)
 		else
 			ft_swap(stacks->a, A, SIMPLE);
 	}
-	//push_split(stacks);
+	push_split(stacks);
 }

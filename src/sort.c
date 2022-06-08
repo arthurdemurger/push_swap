@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:02:56 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/08 15:28:04 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 17:31:39 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void	sort(t_stack *stacks)
 		sort_4(stacks);
 	else if (stacks->size == 5)
 		sort_5(stacks);
-	else if (stacks->size <= 289)
-		split_in_chunks(stacks);
 	else
-		radix_sort(stacks);
+		split_in_chunks(stacks);
 }

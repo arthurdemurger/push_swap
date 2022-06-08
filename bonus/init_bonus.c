@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/05 14:41:24 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 18:31:37 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,28 @@
 void	check_arg(t_stack *stacks)
 {
 	t_list	*tmp;
-	t_list	*lst;
-
-	lst = stacks->a;
-	while (lst)
-	{
-		tmp = lst->next;
-		while (tmp)
-		{
-			if (lst->data == tmp->data)
-				ft_error(stacks);
-			tmp = tmp->next;
-		}
-		lst = lst->next;
-	}
-}
-
-void	transform_stack(t_stack *stacks)
-{
+	int		*tab;
 	int		i;
-	t_list	*tmp;
+	int		j;
 
 	i = 0;
+	tab = malloc(sizeof(int) * (stacks->size + 1));
 	tmp = stacks->a;
-	while (i++ < stacks->size)
+	while (tmp)
 	{
-		tmp->nb = ft_findorder(stacks->a, tmp->data);
+		tab[i++] = tmp->data;
 		tmp = tmp->next;
 	}
+	i = 0;
+	while (i < stacks->size)
+	{
+		j = i + 1;
+		while (j < stacks->size)
+			if (tab[i] == tab[j++])
+				ft_error(stacks);
+		i++;
+	}
+	free(tab);
 }
 
 void	ft_init(t_stack *stacks, char **av)
@@ -52,9 +46,9 @@ void	ft_init(t_stack *stacks, char **av)
 	i = 0;
 	stacks->a = NULL;
 	stacks->b = NULL;
+	printf("%s\n", av[i]);
 	while (av[++i])
 		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
 	stacks->size = ft_lstsize(stacks->a);
 	check_arg(stacks);
-	transform_stack(stacks);
 }

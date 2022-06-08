@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/06/08 15:12:25 by ademurge         ###   ########.fr        #
+#    Updated: 2022/06/08 18:28:52 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ BONUS_SRC		=	bonus/error_bonus.c \
 GNL				=	gnl/get_next_line.c \
 					gnl/get_next_line_utils.c
 
-BONUS_NAME		= checker_bonus
+BONUS_NAME		= checker
 
 NAME			= push_swap
 

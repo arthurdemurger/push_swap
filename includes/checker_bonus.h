@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 00:24:20 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 16:10:24 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 11:32:02 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ typedef struct s_list
 
 typedef struct s_stack
 {
-	char	name_a;
-	char	name_b;
 	t_list	*a;
 	t_list	*b;
 	int		size;

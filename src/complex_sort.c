@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/08 15:09:03 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/08 16:34:19 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 			paying attention to the next pushes you can make, ...
 	*/
 
+/*
 int	smart_rotate(t_list *lst, int max)
 {
 	int		top;
@@ -49,7 +50,7 @@ int	smart_rotate(t_list *lst, int max)
 	else
 		return (BOTTOM);
 }
-
+*/
 void	smart_push(t_stack *stacks)
 {
 	if (stacks->a->data < stacks->b->data)
@@ -66,9 +67,9 @@ void	smart_push(t_stack *stacks)
 			ft_push(&stacks->a, &stacks->b, A, PRINT);
 		}
 	}
-	else if (ft_lstlast(stacks->a)->data < stacks->a->data)
+	else if (stacks->a->data > ft_lstlast(stacks->a)->data)
 	{
-		while (ft_lstlast(stacks->a)->data < stacks->a->data
+		while (stacks->a->data > ft_lstlast(stacks->a)->data
 			&& ft_lstlast(stacks->a)->data > stacks->b->data)
 			ft_reverse_rot(&stacks->a, A, SIMPLE);
 		ft_push(&stacks->a, &stacks->b, A, PRINT);
@@ -98,21 +99,18 @@ void	push_split(t_stack *stacks)
 void	split_in_chunks(t_stack *stacks)
 {
 	int	med;
-	int	rot;
 
 	while (ft_lstsize(stacks->a) > 3)
 	{
 		med = ft_find_med(stacks->a);
 		while (is_in_range(stacks->a, med))
 		{
-			rot = smart_rotate(stacks->a, med);
-			if (rot == TOP && stacks->a->data >= med)
-				while (stacks->a->data >= med)
-					ft_rotate(&stacks->a, A, SIMPLE);
-			else if (rot == BOTTOM)
-				while (stacks->a->data >= med)
-					ft_reverse_rot(&stacks->a, A, SIMPLE);
-			ft_push(&stacks->b, &stacks->a, B, PRINT);
+			if (stacks->a->data < med)
+				ft_push(&stacks->b, &stacks->a, B, PRINT);
+			else if (ft_lstlast(stacks->a)->data < med)
+				ft_reverse_rot(&stacks->a, A, SIMPLE);
+			else
+				ft_rotate(&stacks->a, A, SIMPLE);
 		}
 	}
 	if (!is_sorted(stacks->a))
@@ -122,5 +120,5 @@ void	split_in_chunks(t_stack *stacks)
 		else
 			ft_swap(stacks->a, A, SIMPLE);
 	}
-	push_split(stacks);
+	//push_split(stacks);
 }

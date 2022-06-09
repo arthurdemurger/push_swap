@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 00:24:20 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/08 11:32:02 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/09 10:51:32 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_list
 {
 	struct s_list	*next;
 	int				data;
-	int				nb;
 }	t_list;
 
 typedef struct s_stack
@@ -77,9 +76,7 @@ void	free_stacks(t_stack *stacks);
 */
 
 int		ft_atoi(const char *str, t_stack *stacks);
-int		ft_findindex(t_list *lst, int nb);
 int		ft_findmin(t_list *lst);
-int		ft_findorder(t_list *lst, int nb);
 int		ft_isdigit(int c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);

@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/08 18:31:37 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/09 16:34:52 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,18 @@ void	check_arg(t_stack *stacks)
 void	ft_init(t_stack *stacks, char **av)
 {
 	int		i;
+	t_list	*tmp;
 
 	i = 0;
 	stacks->a = NULL;
 	stacks->b = NULL;
-	printf("%s\n", av[i]);
 	while (av[++i])
-		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
+	{
+		tmp = malloc(sizeof(t_list));
+		tmp->data = ft_atoi(av[i], stacks);
+		tmp->next = NULL;
+		ft_lstadd_back(&stacks->a, tmp);
+	}
 	stacks->size = ft_lstsize(stacks->a);
 	check_arg(stacks);
 }

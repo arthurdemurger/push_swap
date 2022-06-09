@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:12:04 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/02 15:40:44 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/09 10:51:01 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ void	ft_swap(t_list *lst)
 
 	if (lst && lst->next)
 	{
-		tmp = lst->nb;
-		lst->nb = lst->next->nb;
-		lst->next->nb = tmp;
 		tmp = lst->data;
 		lst->data = lst->next->data;
 		lst->next->data = tmp;

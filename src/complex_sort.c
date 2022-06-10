@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/10 15:20:53 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:57:14 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,9 @@ void	complex_sort(t_stack *stacks)
 {
 	int	chunk;
 
-	if (stacks->size >= 100)
-	{
-		chunk = find_chunk(stacks);
+	chunk = find_chunk(stacks);
+	if (stacks->size >= 100 && chunk < stacks->size)
 		split_big_chunk(stacks, chunk);
-	}
 	else
 		split_little_chunk(stacks);
 	if (!is_sorted(stacks->a))

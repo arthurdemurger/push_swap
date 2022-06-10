@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 23:37:27 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/10 15:18:13 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:58:36 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	find_chunk(t_stack *stacks)
 	size = stacks->size;
 	if (size % 2 != 0)
 		size--;
-	while (i < 4)
+	while (i < 4 && div <= size)
 		if (size % ++div == 0)
 			tab[i++] = div;
-	if (size <= 200)
+	if (size <= 200 || i < 4)
 		return (tab[1] * tab[2]);
 	else
 		return (tab[2] * tab[3]);

@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/06/08 18:28:52 by ademurge         ###   ########.fr        #
+#    Updated: 2022/06/10 14:36:36 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ LIBFT			=	libft/ft_atoi.c \
 					libft/ft_findmed.c \
 					libft/ft_findmin.c \
 					libft/ft_findorder.c \
+					libft/ft_is_prime.c \
 					libft/ft_lst_prelast.c \
 					libft/ft_isdigit.c \
 					libft/ft_lstadd_back.c \

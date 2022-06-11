@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/10 15:15:05 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/11 15:26:44 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,11 @@ int		is_sorted(t_list *lst);
 void	radix_sort(t_stack *stacks);
 void	free_stacks(t_stack *stacks);
 void	sort_3(t_stack *stacks);
+void	sort_4(t_stack *stacks);
+void	sort_5(t_stack *stacks);
 void	complex_sort(t_stack *stacks);
+int		smart_rot(t_stack *stacks, int max);
+
 
 /*
 ** Libft functions
@@ -88,6 +92,7 @@ void	complex_sort(t_stack *stacks);
 
 int		ft_atoi(const char *str, t_stack *stacks);
 int		ft_findindex(t_list *lst, int nb);
+int		ft_findmax(t_list *lst);
 int		ft_find_med(t_list *lst);
 int		ft_findmin(t_list *lst);
 int		ft_findorder(t_list *lst, int nb);

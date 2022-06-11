@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/11 12:39:27 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/11 16:03:01 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	split_big_chunk(t_stack *stacks, int chunk)
 	int	med;
 
 	med = 0;
-	while (ft_lstsize(stacks->a) > 3)
+	while (ft_lstsize(stacks->a) > 5)
 	{
 		med += chunk;
 		while (is_in_range(stacks->a, med, NB))
@@ -88,7 +88,7 @@ void	split_little_chunk(t_stack *stacks)
 {
 	int	med;
 
-	while (ft_lstsize(stacks->a) > 3)
+	while (ft_lstsize(stacks->a) > 5)
 	{
 		med = ft_find_med(stacks->a);
 		while (is_in_range(stacks->a, med, DATA))
@@ -99,13 +99,12 @@ void	split_little_chunk(t_stack *stacks)
 				ft_rotate(&stacks->a, A, SIMPLE);
 		}
 	}
-	print_stacks(stacks);
-	exit(1);
 }
 
 void	complex_sort(t_stack *stacks)
 {
 	int	chunk;
+	int	size;
 
 	chunk = find_chunk(stacks);
 	if (stacks->size >= 100 && chunk < stacks->size)
@@ -114,10 +113,15 @@ void	complex_sort(t_stack *stacks)
 		split_little_chunk(stacks);
 	if (!is_sorted(stacks->a))
 	{
-		if (ft_lstsize(stacks->a) == 3)
-			sort_3(stacks);
-		else
+		size = ft_lstsize(stacks->a);
+		if (size == 2)
 			ft_swap(stacks->a, A, SIMPLE);
+		else if (size == 3)
+			sort_3(stacks);
+		else if (size == 4)
+			sort_4(stacks);
+		else if (size == 5)
+			sort_5(stacks);
 	}
 	push_split(stacks);
 }

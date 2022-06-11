@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/10 15:57:14 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:39:27 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,11 @@ void	split_big_chunk(t_stack *stacks, int chunk)
 		{
 			if (stacks->a->nb < med)
 				ft_push(&stacks->b, &stacks->a, B, PRINT);
-			else if (ft_lstlast(stacks->a)->nb < med)
-				ft_reverse_rot(&stacks->a, A, SIMPLE);
 			else
 				ft_rotate(&stacks->a, A, SIMPLE);
 		}
 	}
 }
-
 void	split_little_chunk(t_stack *stacks)
 {
 	int	med;
@@ -98,12 +95,12 @@ void	split_little_chunk(t_stack *stacks)
 		{
 			if (stacks->a->data < med)
 				ft_push(&stacks->b, &stacks->a, B, PRINT);
-			else if (ft_lstlast(stacks->a)->data < med)
-				ft_reverse_rot(&stacks->a, A, SIMPLE);
 			else
 				ft_rotate(&stacks->a, A, SIMPLE);
 		}
 	}
+	print_stacks(stacks);
+	exit(1);
 }
 
 void	complex_sort(t_stack *stacks)

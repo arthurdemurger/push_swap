@@ -6,7 +6,7 @@
 #    By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 15:35:50 by ademurge          #+#    #+#              #
-#    Updated: 2022/06/10 14:36:36 by ademurge         ###   ########.fr        #
+#    Updated: 2022/06/21 18:49:59 by ademurge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,8 @@ BONUS_SRC		=	bonus/error_bonus.c \
 					bonus/print_ins_bonus.c \
 					bonus/utils_bonus.c
 
-GNL				=	gnl/get_next_line.c \
-					gnl/get_next_line_utils.c
+GNL				=	bonus/gnl/get_next_line_bonus.c \
+					bonus/gnl/get_next_line_utils_bonus.c
 
 BONUS_NAME		= checker
 

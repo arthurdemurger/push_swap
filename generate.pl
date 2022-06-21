@@ -72,7 +72,7 @@ sub	list_check_sorted {
 	}
 }
 
-sub generate_worst_case {
+sub generate {
 
 	$disorder_factor = 0;
 
@@ -84,19 +84,5 @@ sub generate_worst_case {
 	print("@numbers\n");
 }
 
-
-
 $NUM = @ARGV[0];
-
-generate_worst_case();
-
-
-# $cmd = "timeout 15 ./push_swap ".join(' ', @numbers)." | ./checker ".join(' ', @numbers);
-# $res = `$cmd`;
-# if ($res eq "KO\n")	{
-# 	print "\n\033[1T\033[31;1mKO Checker\033[0m"." " x 50 ."\n";
-# 	print "@numbers\n\n"; exit 1;
-# }
-# $cmd = "./push_swap ".join(' ', @numbers)." | wc -l";
-# $res = `$cmd`;
-# print("InstrCount ".$res);
+generate();

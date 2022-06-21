@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 23:37:27 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/10 15:58:36 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/21 13:24:44 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ int	is_in_range(t_list *lst, int max, int nb_data)
 		}
 	}
 	return (0);
+}
+
+void	push_split2(t_stack *stacks)
+{
+	if (ft_lstlast(stacks->a)->data < stacks->a->data
+		&& ft_lstlast(stacks->a) > ft_lstlast(stacks->b)
+		&& stacks->b->data < ft_lstlast(stacks->b)->data)
+		ft_double(stacks, REVERSE);
+	else
+		ft_reverse_rot(&stacks->b, B, SIMPLE);
 }
 
 int	find_chunk(t_stack *stacks)

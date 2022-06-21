@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/20 19:59:18 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/21 13:25:52 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_init(t_stack *stacks, char **av)
 	if (av[1] == NULL)
 		exit(0);
 	while (av[++i])
-		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
+		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks)));
 	stacks->size = ft_lstsize(stacks->a);
 	prev_init(stacks->a);
 	check_arg(stacks);

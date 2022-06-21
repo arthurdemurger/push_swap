@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/12 14:43:34 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/21 13:25:00 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,7 @@ void	push_split(t_stack *stacks)
 			ft_reverse_rot(&stacks->b, B, SIMPLE);
 		while (stacks->b->data > (stacks->b->next)->data
 			&& stacks->b->data < ft_lstlast(stacks->b)->data)
-		{
-			if (ft_lstlast(stacks->a)->data < stacks->a->data
-				&& ft_lstlast(stacks->a) > ft_lstlast(stacks->b)
-				&& stacks->b->data < ft_lstlast(stacks->b)->data)
-				ft_double(stacks, REVERSE);
-			else
-				ft_reverse_rot(&stacks->b, B, SIMPLE);
-		}
+			push_split2(stacks);
 		smart_push(stacks);
 	}
 	smart_push(stacks);
@@ -96,6 +89,7 @@ void	split_big_chunk(t_stack *stacks, int chunk)
 		}
 	}
 }
+
 void	split_little_chunk(t_stack *stacks)
 {
 	int	med;

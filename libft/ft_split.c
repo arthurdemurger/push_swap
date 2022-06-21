@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 18:23:28 by ademurge          #+#    #+#             */
-/*   Updated: 2022/05/18 17:01:10 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/21 13:17:15 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	**ft_split(char const *s, char c)
 	count = count_words(s, c);
 	str = (char **)malloc(sizeof(char *) * (count + 2));
 	if (!str)
-		return (NULL);
+		exit(1);
 	str[0] = NULL;
 	while (++i < count)
 	{

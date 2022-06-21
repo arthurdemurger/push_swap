@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/09 16:34:52 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/21 13:16:28 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	check_arg(t_stack *stacks)
 
 	i = 0;
 	tab = malloc(sizeof(int) * (stacks->size + 1));
+	if (!tab)
+		exit(1);
 	tmp = stacks->a;
 	while (tmp)
 	{
@@ -50,6 +52,8 @@ void	ft_init(t_stack *stacks, char **av)
 	while (av[++i])
 	{
 		tmp = malloc(sizeof(t_list));
+		if (!tmp)
+			exit(1);
 		tmp->data = ft_atoi(av[i], stacks);
 		tmp->next = NULL;
 		ft_lstadd_back(&stacks->a, tmp);

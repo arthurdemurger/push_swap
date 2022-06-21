@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 09:26:21 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/03 09:30:29 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/21 13:16:50 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_find_med(t_list *lst)
 
 	size = ft_lstsize(lst);
 	array = malloc(sizeof(int) * size);
+	if (!array)
+		exit(1);
 	i = -1;
 	while (lst)
 	{

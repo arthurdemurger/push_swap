@@ -69,7 +69,7 @@ int	main(int argc, char **argv)
 		else
 			ft_init(&stacks, argv);
 		read_cmd(&stacks);
-		if (is_sorted(stacks.a))
+		if (is_sorted(stacks.a) && !ft_lstsize(stacks.b))
 			write (1, "OK\n", 3);
 		else
 			write (1, "KO\n", 3);

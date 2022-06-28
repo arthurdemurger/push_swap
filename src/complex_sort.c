@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:00:08 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/21 13:25:00 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/29 01:00:07 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	split_little_chunk(t_stack *stacks)
 
 	while (ft_lstsize(stacks->a) > 5)
 	{
-		med = ft_find_med(stacks->a);
+		med = ft_find_med(stacks->a, stacks);
 		while (is_in_range(stacks->a, med, DATA))
 		{
 			if (stacks->a->data < med)

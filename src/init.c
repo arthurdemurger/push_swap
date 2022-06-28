@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:04:58 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/21 13:25:52 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/29 00:58:13 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_arg(t_stack *stacks)
 		while (tmp)
 		{
 			if (lst->data == tmp->data)
-				ft_error(stacks);
+				ft_error(stacks, ERROR);
 			tmp = tmp->next;
 		}
 		lst = lst->next;
@@ -63,9 +63,9 @@ void	ft_init(t_stack *stacks, char **av)
 	stacks->a = NULL;
 	stacks->b = NULL;
 	if (av[1] == NULL)
-		exit(0);
+		exit(EXIT_SUCCESS);
 	while (av[++i])
-		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks)));
+		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(av[i], stacks), stacks));
 	stacks->size = ft_lstsize(stacks->a);
 	prev_init(stacks->a);
 	check_arg(stacks);

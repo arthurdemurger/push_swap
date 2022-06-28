@@ -6,13 +6,13 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 09:26:21 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/21 13:16:50 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/29 00:59:30 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_find_med(t_list *lst)
+int	ft_find_med(t_list *lst, t_stack *stacks)
 {
 	int	*array;
 	int	i;
@@ -21,7 +21,7 @@ int	ft_find_med(t_list *lst)
 	size = ft_lstsize(lst);
 	array = malloc(sizeof(int) * size);
 	if (!array)
-		exit(1);
+		ft_error(stacks, MALLOC);
 	i = -1;
 	while (lst)
 	{

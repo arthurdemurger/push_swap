@@ -16,14 +16,14 @@ int	main(int argc, char **argv)
 {
 	t_stack	stacks;
 	char	**split;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (argc > 1)
 	{
 		if (argc == 2)
 		{
-			split = ft_split(argv[1], ' ');
+			split = ft_split(argv[1], ' ', NULL);
 			ft_init(&stacks, split);
 			while (split[++i])
 				free(split[i]);

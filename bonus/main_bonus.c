@@ -61,11 +61,20 @@ void	read_cmd(t_stack *stacks)
 int	main(int argc, char **argv)
 {
 	t_stack	stacks;
+	char	**split;
+	int	i;
 
+	i = 0;
 	if (argc > 1)
 	{
 		if (argc == 2)
-			ft_init(&stacks, ft_split(argv[1], ' '));
+		{
+			split = ft_split(argv[1], ' ');
+			ft_init(&stacks, split);
+			while (split[++i])
+				free(split[i]);
+			free(split);
+		}
 		else
 			ft_init(&stacks, argv);
 		read_cmd(&stacks);

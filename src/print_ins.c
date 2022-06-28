@@ -6,12 +6,13 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 16:21:04 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/08 12:05:37 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/29 01:18:35 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/*
 void	print_stacks(t_stack *stacks)
 {
 	int	i;
@@ -31,6 +32,7 @@ void	print_stacks(t_stack *stacks)
 		stacks->b = stacks->b->next;
 	}
 }
+*/
 
 void	ft_print_ins(char *s, char name)
 {

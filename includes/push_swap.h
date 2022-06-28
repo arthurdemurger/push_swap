@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:06:46 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/21 13:25:46 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/29 01:19:06 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 ** Libraries
 */
 
-# include <stdio.h> // TO DELETE !!!!!!!!!!!!!!!!!!
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -57,6 +56,8 @@ typedef struct s_stack
 # define NO_PRINT 1
 # define DATA 1
 # define NB 0
+# define ERROR "Error\n"
+# define MALLOC "Malloc error\n"
 # define A 'a'
 # define B 'b'
 
@@ -64,8 +65,8 @@ typedef struct s_stack
 ** Main functions
 */
 
-void	print_stacks(t_stack *stacks); // TO DELETE !!!!!!!!!!!!!!!!!!!!
-void	ft_error(t_stack *stacks);
+/*void	print_stacks(t_stack *stacks);*/
+void	ft_error(t_stack *stacks, char *error);
 int		find_chunk(t_stack *stacks);
 void	ft_init(t_stack *stacks, char **av);
 void	ft_swap(t_list *lst, char stack, int is_double);
@@ -92,7 +93,7 @@ void	complex_sort(t_stack *stacks);
 int		ft_atoi(const char *str, t_stack *stacks);
 int		ft_findindex(t_list *lst, int nb);
 int		ft_findmax(t_list *lst);
-int		ft_find_med(t_list *lst);
+int		ft_find_med(t_list *lst, t_stack *stacks);
 int		ft_findmin(t_list *lst);
 int		ft_findorder(t_list *lst, int nb);
 int		ft_is_prime(int nb);
@@ -103,15 +104,15 @@ void	ft_lstclear(t_list **lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstdelone(t_list *lst);
 t_list	*ft_lst_prelast(t_list *lst);
-t_list	*ft_lstnew(int data);
+t_list	*ft_lstnew(int data, t_stack *stacks);
 int		ft_lstsize(t_list *lst);
 void	ft_sort_int_tab(int *tab, int size);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c, t_stack *stacks);
 int		ft_strcmp(char *s1, char *s2);
-char	*ft_strdup(char *src);
+char	*ft_strdup(char *src, t_stack *stacks);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 int		ft_strlen(char *s);
-char	*ft_substr(char const *s, int start, int len);
+char	*ft_substr(char const *s, int start, int len, t_stack *stacks);
 
 /*
 ** GNL functions

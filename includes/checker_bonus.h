@@ -6,7 +6,7 @@
 /*   By: ademurge <ademurge@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 00:24:20 by ademurge          #+#    #+#             */
-/*   Updated: 2022/06/09 10:51:32 by ademurge         ###   ########.fr       */
+/*   Updated: 2022/06/29 01:20:39 by ademurge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 ** Libraries
 */
 
-# include <stdio.h> // TO DELETE !!!!!!!!!!!!!!!!!!
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -51,6 +50,8 @@ typedef struct s_stack
 # define SIMPLE 0
 # define PRINT 0
 # define NO_PRINT 1
+# define ERROR "Error\n"
+# define MALLOC "Malloc error\n"
 # define A 'a'
 # define B 'b'
 
@@ -58,8 +59,8 @@ typedef struct s_stack
 ** Main functions
 */
 
-void	print_stacks(t_stack *stacks); // TO DELETE !!!!!!!!!!!!!!!!!!!!
-void	ft_error(t_stack *stacks);
+/*void	print_stacks(t_stack *stacks);*/
+void	ft_error(t_stack *stacks, char *error);
 void	ft_init(t_stack *stacks, char **av);
 void	ft_swap(t_list *lst);
 void	ft_print_ins(char *s, char stack);
@@ -87,12 +88,12 @@ t_list	*ft_lst_prelast(t_list *lst);
 t_list	*ft_lstnew(int data, t_stack *stacks);
 int		ft_lstsize(t_list *lst);
 void	ft_sort_int_tab(int *tab, int size);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c, t_stack *stacks);
 int		ft_strcmp(char *s1, char *s2);
-char	*ft_strdup(char *src);
+char	*ft_strdup(char *src, t_stack *stacks);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 int		ft_strlen(char *s);
-char	*ft_substr(char const *s, int start, int len);
+char	*ft_substr(char const *s, int start, int len, t_stack *stacks);
 
 /*
 ** GNL functions
